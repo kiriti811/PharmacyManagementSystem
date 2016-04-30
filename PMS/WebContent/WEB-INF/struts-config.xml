@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- This is the Struts configuration file for the Login example application -->
+
+
+<struts-config>
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	</form-beans>
+
+	<action-mappings>
+	
+		<action path="/userProfiles" type="javaActionForms.userProfilesActionForm"
+			name="userProfiles" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/userId.jsp" />
+			<forward name="listSuccess" path="/jsp/list.jsp" />
+			<forward name="listIdSuccess" path="/jsp/userProfilesEdit.jsp" />
+			<forward name="editSuccess" path="/jsp/Home.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/userProfiles.jsp" />
+		</action>
+		
+		
+		<action path="/dailyReports" type="javaActionForms.dailyReportActionForm"
+			name="dailyReports" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/dailyReport.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/dailyReport.jsp" />
+		</action>
+		
+		<action path="/yearlyReports" type="javaActionForms.yearlyReportActionForm"
+			name="yearlyReports" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/yearlyReports.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/yearlyReports.jsp" />
+		</action>
+		
+		<action path="/addMedicineType" type="javaActionForms.addMedicineTypeActionForm"
+			name="addMedicineType" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/addMedicineType.jsp" />
+			<forward name="listSuccess" path="/jsp/list.jsp" />
+			<forward name="listIdSuccess" path="/jsp/addMedicineType.jsp" />
+			<forward name="editSuccess" path="/jsp/addMedicineType.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/addMedicineType.jsp" />
+		</action>
+
+	<action path="/medicineInventory" type="javaActionForms.medicineInventoryActionForm"
+			name="medicineInventory" scope="request" parameter="method" validate="false">
+			<forward name="listSuccess" path="/jsp/inventoryList.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/searchMedicines.jsp" />
+			<forward name="searchSuccess" path="/jsp/searchList.jsp" />
+		</action>
+
+
+		<action path="/addMedicines" type="javaActionForms.addMedicinesActionForm"
+			name="addMedicines" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/addMedicines.jsp" />
+			<forward name="listSuccess" path="/jsp/list.jsp" />
+			<forward name="listIdSuccess" path="/jsp/addMedicines.jsp" />
+			<forward name="editSuccess" path="/jsp/addMedicines.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/addMedicines.jsp" />
+		</action>
+
+
+	<action path="/sellMedicines" type="javaActionForms.sellMedicinesActionForm"
+			name="sellMedicines" scope="request" parameter="method" validate="false">
+			<forward name="addSuccess" path="/jsp/sellMedicines.jsp" />
+			<forward name="billSuccess" path="/jsp/bill.jsp" />
+			<forward name="listSuccess" path="/jsp/list.jsp" />
+			<forward name="listIdSuccess" path="/jsp/sellMedicines.jsp" />
+			<forward name="editSuccess" path="/jsp/sellMedicines.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/sellMedicines.jsp" />
+			<forward name="prescriptionSuccess" path="/jsp/uploadPrescription.jsp" />
+		</action>
+
+
+		<action path="/logout" type="javaActionForms.logoutActionForm"
+			name="logout" scope="request" parameter="method" validate="false">
+			<forward name="logoutSuccess" path="/jsp/Index.jsp" />
+		</action>
+
+		<action path="/login" type="javaActionForms.loginActionForm"
+			name="login" scope="request" parameter="method" validate="false">
+			<forward name="authenticateSuccess" path="/jsp/Home.jsp" />
+			<forward name="authenticateFailure" path="/jsp/Index.jsp" />
+		</action>
+		
+		<action path="/changePassword" type="javaActionForms.changePasswordActionForm"
+			name="changePassword" scope="request" parameter="method" validate="false">
+			<forward name="editSuccess" path="/jsp/changeUserPassword.jsp" />
+			<forward name="emptyactionSuccess" path="/jsp/changeUserPassword.jsp" />
+		</action>
+
+
+	</action-mappings>
+
+	<!-- ========== Message Resources Definitions =========================== -->
+	<message-resources parameter="ApplicationResources" />
+
+
+</struts-config>

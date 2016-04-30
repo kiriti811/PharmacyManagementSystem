@@ -1,0 +1,85 @@
+package javaActionForms;
+
+import java.io.*;
+import java.util.StringTokenizer;
+import java.util.Vector;
+
+public class ReadConfig {
+	public static Vector dropDownColumns(String formName) throws IOException {
+		Vector vec = new Vector();
+		BufferedReader br;
+		String fileName = "D:\\RadhaWorkspace\\PMS\\src\\config.txt";
+		try {
+			FileReader inputFile = new FileReader(fileName);
+			BufferedReader bufferReader = new BufferedReader(inputFile);
+			String line;
+			Vector	vec1	=	new	Vector();
+			int	count	=	0;
+			while ((line = bufferReader.readLine()) != null) {
+				
+				String 	str		=	"";
+				String	str1	=	"";
+				int		count1	=	0;		
+				while(line.contains("$$$"))
+				{
+					if(count1	==	0)
+					{
+						str		=	line.substring(0,line.indexOf("$$$"));
+						line	=	line.substring(line.indexOf("$$$")+3,line.length());
+						}
+						else{
+							if(str.equals(formName.toUpperCase()))
+							{
+								str1		=	line.substring(0,line.indexOf("$$$"));
+								line	=	line.substring(line.indexOf("$$$")+3,line.length());
+							/*	if(!line.contains("$$$"))
+								{
+									vec.add(line);
+								}*/
+								vec.add(str1);
+							}
+					}
+					count1	=	count1	+	1;
+				}
+						
+				}
+				
+			
+			
+				
+				/*StringTokenizer st = new StringTokenizer(line, "$$$");
+				while (st.hasMoreTokens()) {
+					String 	str1 	= 	st.nextToken();
+					String	str2	=	st.nextToken();
+					
+					
+					System.out.println(str1);
+					System.out.println(str2);
+					vec1.add(str1);
+					if(vec1.get(count).equals(formName.toUpperCase()))
+					{
+						
+						vec.add(str2);
+					}
+					while(str2.contains("$$$"))
+					{
+						vec1.add(str1);
+						if(vec1.get(count).equals(formName.toUpperCase()))
+						{
+							
+							vec.add(str2);
+						}
+						str2	=	st.nextToken();
+					}
+					
+				}
+				count	=	count	+	1;
+
+			}*/	
+			bufferReader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vec;
+	}
+}

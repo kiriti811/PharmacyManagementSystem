@@ -1,0 +1,2 @@
+ADDMEDICINES$$$medicineType
+SELLMEDICINES$$$medicineName
